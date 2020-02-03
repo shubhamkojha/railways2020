@@ -9,7 +9,7 @@ router.get('/:origin/:destination', function(req,res,next){
     var origin = req.params.origin;
     var destination = req.params.destination;
     
-    res.status(500).json(trainBetweenTwoStations(origin,destination));
+    res.status(200).json(trainBetweenTwoStations(origin,destination));
     next();
 });
 
