@@ -64,7 +64,7 @@ module.exports = function(){
         for(key in results)
         {
             
-            if(minDistance < 1000 && results[key].distance <= 1.2*minDistance)
+            if(minDistance < 1000 && results[key].distance <= 1.1*minDistance)
             {result.push(results[key]);}
             if(minDistance > 1000 && results[key].distance <= 1.03*minDistance)
             {

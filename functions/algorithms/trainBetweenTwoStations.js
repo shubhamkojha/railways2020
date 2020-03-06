@@ -17,7 +17,7 @@ module.exports = function(){
                 directTrains.push(key);
             }
         }
-        if(directTrains.length > 0)
+        if(directTrains.length >= 10)
         {
             return {"direct":directTrains};
         }

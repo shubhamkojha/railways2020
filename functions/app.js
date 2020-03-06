@@ -2,7 +2,8 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const app = express();
 const trainStatus = require("./api/trainStatus");
-const mongoose = require("mongoose");
+const stationDecoder = require("./api/stationDecoder.js");
+
 
 
 
@@ -22,5 +23,6 @@ app.use((req, res, next) => {
 
 
 app.use('/status/', trainStatus);
+app.use('/station-decoder', stationDecoder);
 
 module.exports = app;
