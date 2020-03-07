@@ -4,11 +4,12 @@ const router  = express.Router();
 const stationCodetoName = require("../data/stationCodetoName.json");
 
 router.get('/:stationDetail', function(req, res, next){
-    const stationNamefromCode = stationCodetoName[req.params.stationDetail.toUpperCase()];
+    const stationCode = req.params.stationDetail.toUpperCase();
+    const stationNamefromCode = stationCodetoName[stationCode];
     
     if(stationNamefromCode !== undefined)
     {
-        res.status(200).json(stationNamefromCode);
+        res.status(200).json({stationNamefromCode});
     }
     else
     {

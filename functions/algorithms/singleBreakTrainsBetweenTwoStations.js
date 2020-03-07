@@ -1,10 +1,10 @@
 const alternateRouteData = require('../data/alternateRoutes.json');
-const data = require('../data/data.json');
+const trainsVisitingStation = require('../data/trainsVisitngStation.json');
 const distanceData = require('../data/distance.json');
 
 module.exports = function(){
 
-    this.alternateRoutes = function(origin, destination){
+    this.singleBreakTrainsBetweenTwoStations = function(origin, destination){
         
         
         const result = [];
@@ -16,7 +16,7 @@ module.exports = function(){
             var distanceOriginConnection;
             var distanceConnectionDestination;
             var totalDistance;
-                for(train in data.trains[origin])
+                for(train in trainsVisitingStation.trains[origin])
                 {
                     
                     
@@ -28,7 +28,7 @@ module.exports = function(){
                     }
                 }
 
-                for(train in data.trains[destination])
+                for(train in trainsVisitingStation.trains[destination])
                 {
                     if(alternateRouteData.trains[key][train] != null && key != origin && key != destination)
                     {

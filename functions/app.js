@@ -1,10 +1,10 @@
 const express = require("express");
 const bodyParser = require("body-parser");
 const app = express();
-const trainStatus = require("./api/trainStatus");
+
+const directTrains = require("./api/directTrains.js");
+const singleBreakTrains = require("./api/singleBreakTrains.js");
 const stationDecoder = require("./api/stationDecoder.js");
-
-
 
 
 app.use(express.json());
@@ -22,7 +22,8 @@ app.use((req, res, next) => {
 });
 
 
-app.use('/status/', trainStatus);
+app.use('/direct-trains/', directTrains);
+app.use('/single-break-trains',singleBreakTrains);
 app.use('/station-decoder', stationDecoder);
 
 module.exports = app;
