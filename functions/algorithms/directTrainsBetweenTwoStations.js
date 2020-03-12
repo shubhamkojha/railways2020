@@ -17,7 +17,7 @@ module.exports = function(){
                 directTrains.push(key);
             }
         }
-        
+       
         return {"direct":directTrains};
     }
 }
