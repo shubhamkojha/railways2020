@@ -2,7 +2,7 @@
 
 A grade code certified by Codacy
 
-Disclaimer: This is a changing codebase. 
-Regular features, algorithms and updates are being added. 
+Disclaimer: This is a changing codebase,
+features, algorithms and updates are being added regularly.
 Please fetch latest codebase before adding any feature.
 
