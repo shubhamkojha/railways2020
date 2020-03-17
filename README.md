@@ -1,4 +1,4 @@
 
 
-Disclaimer: This is an improving codebase. Regular features and updates are being added.
+Disclaimer: This is a changing codebase. Regular features, algorithms and updates are being added.
 
