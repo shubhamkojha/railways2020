@@ -7,7 +7,7 @@ router.get('/:stationDetail', (req, res, next)=>{
     const stationCode = req.params.stationDetail.toUpperCase();
     const stationNamefromCode = stationCodetoName[stationCode];
     
-    if(stationNamefromCode != undefined)
+    if(stationNamefromCode !== undefined)
     {
         res.status(200).json({stationNamefromCode});
     }

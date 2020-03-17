@@ -20,7 +20,7 @@ module.exports = function(){
                 {
                     
                     
-                    if(alternateRouteData.trains[key][train] != null && key != origin && key != destination)
+                    if(alternateRouteData.trains[key][train] !== null && key !== origin && key !== destination)
                     {
                         distanceOriginConnection = Math.abs(parseInt(distanceData.trains[train][key].distance,10)-
                         parseInt(distanceData.trains[train][origin].distance),10);
