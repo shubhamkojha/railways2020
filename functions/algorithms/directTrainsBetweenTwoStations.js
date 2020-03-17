@@ -12,7 +12,7 @@ module.exports = function(){
 
         for(key in originTrains)
         {
-            if(destinationTrains[key] != null)
+            if(destinationTrains[key] !== null)
             {
                 directTrains.push(key);
             }

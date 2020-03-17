@@ -22,24 +22,24 @@ module.exports = function(){
                     
                     if(alternateRouteData.trains[key][train] != null && key != origin && key != destination)
                     {
-                        distanceOriginConnection = Math.abs(parseInt(distanceData.trains[train][key].distance)-
-                        parseInt(distanceData.trains[train][origin].distance));
+                        distanceOriginConnection = Math.abs(parseInt(distanceData.trains[train][key].distance,10)-
+                        parseInt(distanceData.trains[train][origin].distance),10);
                         betweenOriginandConnection.push(train);
                     }
                 }
 
                 for(train in trainsVisitingStation.trains[destination])
                 {
-                    if(alternateRouteData.trains[key][train] != null && key != origin && key != destination)
+                    if(alternateRouteData.trains[key][train] !== null && key !== origin && key !== destination)
                     {
                       
-                        distanceConnectionDestination = Math.abs(parseInt(distanceData.trains[train][key].distance)-
-                        parseInt(distanceData.trains[train][destination].distance));
+                        distanceConnectionDestination = Math.abs(parseInt(distanceData.trains[train][key].distance,10)-
+                        parseInt(distanceData.trains[train][destination].distance),10);
                         betweenConnectionandDestination.push(train);
                     }
                 }
 
-                if(betweenConnectionandDestination.length != 0 && betweenOriginandConnection.length != 0)
+                if(betweenConnectionandDestination.length !== 0 && betweenOriginandConnection.length !== 0)
                 {
                     totalDistance = distanceOriginConnection+distanceConnectionDestination;
                     if(minDistance > totalDistance)
