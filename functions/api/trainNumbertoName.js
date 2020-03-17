@@ -3,7 +3,7 @@ const router  = express.Router();
 
 const trainNumbertoName = require('../data/train_number_to_name.json');
 
-router.get('/:trainNumber', function(req,res,next){
+router.get('/:trainNumber', (req,res,next)=>{
     const trainNumber = req.params.trainNumber;
     const trainName = trainNumbertoName[trainNumber];
     if(trainName !== undefined)
