@@ -18,7 +18,7 @@ app.use((req, res, next) => {
     res.header("Access-Control-Allow-Methods", "POST GET PATCH PUT DELETE");
     return res.status(200).json({});
   }
-  res.status(200).send('cors-removed');
+  
   next();
 });
 
