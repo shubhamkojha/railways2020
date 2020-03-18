@@ -3,7 +3,7 @@ const trainsVisitingStation = require('../data/trainsVisitngStation.json');
 
 module.exports = function(){
 
-    this.directTrainsBetweenTwoStations = function(origin,destination){
+    this.directTrainsBetweenTwoStations = (origin,destination)=>{
         
         var originTrains = trainsVisitingStation.trains[origin];
         var destinationTrains = trainsVisitingStation.trains[destination];
@@ -12,7 +12,7 @@ module.exports = function(){
 
         for(key in originTrains)
         {
-            if(destinationTrains[key] !== null)
+            if(destinationTrains[key] !== undefined)
             {
                 directTrains.push(key);
             }
