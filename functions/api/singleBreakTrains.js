@@ -16,7 +16,7 @@ router.get('/:origin/:destination', (req,res,next)=>{
     }
     else
     {
-        res.status(200).json("Invalid Station Details");
+        res.status(404).json("Invalid Station Details");
     }
 });
 

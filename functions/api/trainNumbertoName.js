@@ -12,7 +12,7 @@ router.get('/:trainNumber', (req,res,next)=>{
     }
     else
     {
-        res.status(200).json("Invalid Train Details");
+        res.status(404).json("Invalid Train Details");
     }
 });
 

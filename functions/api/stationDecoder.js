@@ -13,7 +13,7 @@ router.get('/:stationDetail', (req, res, next)=>{
     }
     else
     {
-        res.status(200).json("Invalid Details");
+        res.status(404).json("Invalid Details");
     }
 });
 
