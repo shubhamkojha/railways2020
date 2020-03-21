@@ -1,6 +1,8 @@
 const alternateRouteData = require('../data/alternateRoutes.json');
 const trainsVisitingStation = require('../data/trainsVisitngStation.json');
 const distanceData = require('../data/distance.json');
+const distance = require('../data/distance.json');
+const trainNumberToName = require('../data/train_number_to_name.json');
 
 module.exports = function(){
 
@@ -20,22 +22,24 @@ module.exports = function(){
                 {
                     
                     
-                    if(alternateRouteData.trains[key][train] !== undefined && key !== origin && key !== destination)
+                    if(alternateRouteData.trains[key][train] !== undefined && key !== origin && key !== destination &&
+                    (parseInt(distance.trains[train][origin].distance,10) < parseInt(distance.trains[train][key].distance,10)))
                     {
                         distanceOriginConnection = Math.abs(parseInt(distanceData.trains[train][key].distance,10)-
                         parseInt(distanceData.trains[train][origin].distance),10);
-                        betweenOriginandConnection.push(train);
+                        betweenOriginandConnection.push({number: train, name: trainNumberToName[train]});
                     }
                 }
 
                 for(train in trainsVisitingStation.trains[destination])
                 {
-                    if(alternateRouteData.trains[key][train] !== undefined && key !== origin && key !== destination)
+                    if(alternateRouteData.trains[key][train] !== undefined && key !== origin && key !== destination &&
+                    (parseInt(distance.trains[train][key].distance,10) < parseInt(distance.trains[train][destination].distance,10)))
                     {
                       
                         distanceConnectionDestination = Math.abs(parseInt(distanceData.trains[train][key].distance,10)-
                         parseInt(distanceData.trains[train][destination].distance),10);
-                        betweenConnectionandDestination.push(train);
+                        betweenConnectionandDestination.push({number: train, name: trainNumberToName[train]});
                     }
                 }
 

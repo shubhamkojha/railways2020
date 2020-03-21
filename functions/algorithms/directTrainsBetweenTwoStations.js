@@ -1,4 +1,6 @@
 const trainsVisitingStation = require('../data/trainsVisitngStation.json');
+const distance = require('../data/distance.json');
+const trainNumberToName = require('../data/train_number_to_name.json');
 
 
 module.exports = function(){
@@ -7,14 +9,15 @@ module.exports = function(){
         
         var originTrains = trainsVisitingStation.trains[origin];
         var destinationTrains = trainsVisitingStation.trains[destination];
-
+        
         var directTrains = [];
 
-        for(key in originTrains)
+        for(trainNumber in originTrains)
         {
-            if(destinationTrains[key] !== undefined)
+            if(destinationTrains[trainNumber] !== undefined && 
+            (parseInt(distance.trains[trainNumber][origin].distance,10) < parseInt(distance.trains[trainNumber][destination].distance,10)))
             {
-                directTrains.push(key);
+                directTrains.push({number: trainNumber, name: trainNumberToName[trainNumber]});
             }
         }
        
