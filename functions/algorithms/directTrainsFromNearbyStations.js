@@ -6,11 +6,11 @@ const nearbyStations=require('../data/NearbyStations.json');
 module.exports = function(){
 
     this.directTrainsFromNearbyStations = (Origin,Destination)=>{
+
         var directTrains = [];
         var nearbyStationIncludeOrigin=nearbyStations[Origin];
-        nearbyStationIncludeOrigin.push(Origin);
         var nearbyStationIncludeDestination=nearbyStations[Destination];
-        nearbyStationIncludeDestination.push(Destination);
+        
         for(i in nearbyStationIncludeOrigin)
         {
             var origin=nearbyStationIncludeOrigin[i]
