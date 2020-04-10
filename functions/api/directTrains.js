@@ -4,18 +4,21 @@ const router  = express.Router();
 require('../algorithms/directTrainsBetweenTwoStations.js')();
 require('../algorithms/stationCodeValidator.js')();
 
-router.get('/:origin/:destination', (req,res,next)=>{
-
-    var origin = req.params.origin.toUpperCase();
-    var destination = req.params.destination.toUpperCase();
+router.post('/', (req,res,next)=>{
     
-    if(stationCodeValidator(origin, destination))
+    var origin = req.body.origin.toUpperCase();
+    var destination = req.body.destination.toUpperCase();
+    var date = req.body.date;
+    try
     {
-        res.status(200).json(directTrainsBetweenTwoStations(origin,destination));
+        if(stationCodeValidator(origin, destination))
+        {
+            res.status(200).json(directTrainsBetweenTwoStations(origin,destination,date));
+        }
     }
-    else
+    catch(error)
     {
-        res.status(404).json("Invalid Station Details");
+        res.status(404).json(error);
     }
     next();
     
