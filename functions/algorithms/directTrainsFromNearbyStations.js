@@ -24,7 +24,7 @@ module.exports = function(){
                      if(destinationTrains !== undefined&&destinationTrains[trainNumber] !== undefined&&
                      (parseInt(distance.trains[trainNumber][origin].distance,10) < parseInt(distance.trains[trainNumber][destination].distance,10)))
                         {
-                        directTrains.push({origin:origin,destination:destination,number: trainNumber, name: trainNumberToName[trainNumber]});
+                            directTrains.push({origin:origin,destination:destination,number: trainNumber, name: trainNumberToName[trainNumber]});
                         }
                       }
                   }
