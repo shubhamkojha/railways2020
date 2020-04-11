@@ -3,6 +3,7 @@ const router  = express.Router();
 
 require('../algorithms/directTrainsBetweenTwoStations.js')();
 require('../algorithms/stationCodeValidator.js')();
+require('../algorithms/directTrainsFromNearbyStations.js')();
 
 router.post('/', (req,res,next)=>{
     
@@ -22,6 +23,24 @@ router.post('/', (req,res,next)=>{
     }
     next();
     
+});
+
+router.post('/from-nearby-stations', (req,res,next)=>{
+
+    var origin = req.body.origin.toUpperCase();
+    var destination = req.body.destination.toUpperCase();
+    var date = req.body.date;
+
+    if(stationCodeValidator(origin, destination))
+    {
+        res.status(200).json(directTrainsFromNearbyStations(origin,destination,date));
+    }
+    else
+    {
+        res.status(404).json("Invalid Station Details");
+    }
+    next();
+
 });
 
 

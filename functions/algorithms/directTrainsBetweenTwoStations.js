@@ -26,7 +26,7 @@ module.exports = function(){
                     {
                         var utcTime = new Date(trainsVisitingStation.trains[origin][trainNumber]);
                         var time = ("0"+utcTime.getUTCHours()).slice(-2) + ":" + ("0"+utcTime.getUTCMinutes()).slice(-2)
-                        directTrains.push({number: trainNumber, name: trainNumberToName[trainNumber],
+                        directTrains.push({origin:origin, destination: destination,number: trainNumber, name: trainNumberToName[trainNumber],
                         originDepartTime: time});
                     }
                 }
