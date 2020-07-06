@@ -12,7 +12,6 @@ module.exports = function(){
         var date = new Date(date);
         var day = date.getDay();
         var directTrains = [];
-        
 
         for(trainNumber in originTrains)
         {
