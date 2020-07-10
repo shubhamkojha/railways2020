@@ -39,6 +39,7 @@ module.exports = function() {
 						duration: duration,
 						totalDistance:
 							-distance[trainNumber][origin].distance + distance[trainNumber][destination].distance,
+						day: day,
 					});
 				}
 			} catch (error) {

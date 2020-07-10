@@ -13,13 +13,12 @@ module.exports = function() {
 		var minDistance = 100000;
 
 		const date = new Date(userDate);
-		var day = ((date.getDay() - 1) % 7 + 7) % 7;
 
 		for (var connection in alternateRoutes) {
+			var day = date.getDay();
 			var trainBetweenConnectionOrigin = directTrainsBetweenTwoStations(origin, connection, day, userDate);
 
 			if (trainBetweenConnectionOrigin.length > 0) {
-				trainBetweenConnectionOrigin.push(day);
 				const { number, originDeparture } = trainBetweenConnectionOrigin[0];
 
 				day =
@@ -39,7 +38,6 @@ module.exports = function() {
 				);
 
 				if (trainBetweenConnectionOrigin.length !== 0 && trainBetweenConnectionDestination.length !== 0) {
-					trainBetweenConnectionDestination.push(day);
 					const totalDistance =
 						trainBetweenConnectionOrigin[0].totalDistance +
 						trainBetweenConnectionDestination[0].totalDistance;
