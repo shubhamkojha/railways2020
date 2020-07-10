@@ -9,7 +9,7 @@ router.post('/', (req, res, next) => {
 	var destination = req.body.destination.toUpperCase();
 	var date = req.body.date;
 	var getDate = new Date(date);
-	var day = getDate.getDay() - 1;
+	var day = ((getDate.getDay() - 1) % 7 + 7) % 7;
 	try {
 		if (stationCodeValidator(origin, destination)) {
 			res.status(200).json(directTrainsBetweenTwoStations(origin, destination, day, date));
