@@ -1,68 +1,61 @@
-const alternateRouteData = require('../data/alternateRoutes.json');
-const trainsVisitingStation = require('../data/trainsVisitngStation.json');
+const alternateRoutes = require('../data/alternateRoutes.json');
+const trainsVisitingStation = require('../data/trainsVisitingStation.json');
 const distanceData = require('../data/distance.json');
 const distance = require('../data/distance.json');
 const trainNumberToName = require('../data/train_number_to_name.json');
+const { connection } = require('mongoose');
+
+require('./directTrainsBetweenTwoStations.js')();
 
 module.exports = function() {
-	this.singleBreakTrainsBetweenTwoStations = function(origin, destination, timeDifference) {
+	this.singleBreakTrainsBetweenTwoStations = function(origin, destination, userDate) {
 		const result = [];
 		var minDistance = 100000;
-		for (key in alternateRouteData.trains) {
-			const betweenOriginandConnection = [];
-			const betweenConnectionandDestination = [];
-			var distanceOriginConnection;
-			var distanceConnectionDestination;
-			var totalDistance;
-			for (train in trainsVisitingStation.trains[origin]) {
-				if (
-					alternateRouteData.trains[key][train] !== undefined &&
-					key !== origin &&
-					key !== destination &&
-					parseInt(distance.trains[train][origin].distance, 10) <
-						parseInt(distance.trains[train][key].distance, 10)
-				) {
-					distanceOriginConnection = Math.abs(
-						parseInt(distanceData.trains[train][key].distance, 10) -
-							parseInt(distanceData.trains[train][origin].distance),
-						10,
-					);
-					betweenOriginandConnection.push({ number: train, name: trainNumberToName[train] });
-				}
-			}
 
-			for (train in trainsVisitingStation.trains[destination]) {
-				if (
-					alternateRouteData.trains[key][train] !== undefined &&
-					key !== origin &&
-					key !== destination &&
-					parseInt(distance.trains[train][key].distance, 10) <
-						parseInt(distance.trains[train][destination].distance, 10)
-				) {
-					distanceConnectionDestination = Math.abs(
-						parseInt(distanceData.trains[train][key].distance, 10) -
-							parseInt(distanceData.trains[train][destination].distance),
-						10,
-					);
-					betweenConnectionandDestination.push({ number: train, name: trainNumberToName[train] });
-				}
-			}
+		const date = new Date(userDate);
+		var day = ((date.getDay() - 1) % 7 + 7) % 7;
 
-			if (betweenConnectionandDestination.length !== 0 && betweenOriginandConnection.length !== 0) {
-				totalDistance = distanceOriginConnection + distanceConnectionDestination;
+		for (var connection in alternateRoutes) {
+			var trainBetweenConnectionOrigin = directTrainsBetweenTwoStations(origin, connection, day, userDate);
 
-				if (minDistance > totalDistance) {
-					minDistance = totalDistance;
+			if (trainBetweenConnectionOrigin.length > 0) {
+				trainBetweenConnectionOrigin.push(day);
+				const { number, originDeparture } = trainBetweenConnectionOrigin[0];
+
+				day =
+					(day +
+						dayShift(
+							originDeparture,
+							distance[number][connection].duration,
+							distance[number][origin].duration,
+						)) %
+					7;
+
+				var trainBetweenConnectionDestination = directTrainsBetweenTwoStations(
+					connection,
+					destination,
+					day,
+					userDate,
+				);
+
+				if (trainBetweenConnectionOrigin.length !== 0 && trainBetweenConnectionDestination.length !== 0) {
+					trainBetweenConnectionDestination.push(day);
+					const totalDistance =
+						trainBetweenConnectionOrigin[0].totalDistance +
+						trainBetweenConnectionDestination[0].totalDistance;
+
+					if (minDistance > totalDistance) {
+						minDistance = totalDistance;
+					}
+					result.push({
+						connection: connection,
+						distance: totalDistance,
+						'origin-connection': trainBetweenConnectionOrigin,
+						'connection-destination': trainBetweenConnectionDestination,
+					});
 				}
-				result.push({
-					connection: key,
-					distance: totalDistance,
-					'origin-connection': betweenOriginandConnection,
-					'connection-destination': betweenConnectionandDestination,
-				});
 			}
 		}
-
 		return filterByDistance(result, minDistance);
 	};
 
@@ -77,5 +70,34 @@ module.exports = function() {
 			}
 		}
 		return result;
+	};
+
+	this.dayShift = function(originDeparture, connectionDuration, originDuration) {
+		const connectionTimes = connectionDuration.split(':');
+		const originTime = originDuration.split(':');
+
+		const connectionMin = parseInt(connectionTimes[1], 10);
+		const originMin = parseInt(originTime[1], 10);
+		const connectionHr = parseInt(connectionTimes[0], 10);
+		const originHr = parseInt(originTime[0], 10);
+		const minuteDiff = connectionMin - originMin;
+		var carryDur = 0;
+		if (minuteDiff < 0) {
+			carryDur = 1;
+		}
+		const durationMinutes = (minuteDiff % 60 + 60) % 60;
+		const durationHours = connectionHr - originHr - carryDur;
+
+		const originTimes = originDeparture.split(':');
+
+		const originHours = parseInt(originTimes[0], 10);
+		const originMinutes = parseInt(originTimes[1], 10);
+
+		const minuteAddition = durationMinutes + originMinutes;
+		const carryFromMinutes = Math.floor(minuteAddition / 60);
+
+		const hourAddition = originHours + carryFromMinutes + durationHours;
+		const shiftInDay = Math.floor(hourAddition / 24);
+		return shiftInDay;
 	};
 };
