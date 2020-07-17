@@ -11,7 +11,7 @@ router.post('/', (req, res, next) => {
 
 	try {
 		if (stationCodeValidator(origin, destination)) {
-			res.status(200).json(singleBreakTrainsBetweenTwoStations(origin, destination));
+			res.status(200).json(singleBreakTrainsBetweenTwoStations(origin, destination, date));
 		} else {
 			res.status(404).json('Invalid Station Details');
 		}

@@ -12,7 +12,7 @@ router.post('/', (req, res, next) => {
 	var day = getDate.getDay();
 	try {
 		if (stationCodeValidator(origin, destination)) {
-			res.status(200).json(directTrainsBetweenTwoStations(origin, destination));
+			res.status(200).json(directTrainsBetweenTwoStations(origin, destination, day, date));
 		}
 	} catch (error) {
 		res.status(404).json(error);
