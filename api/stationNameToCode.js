@@ -14,7 +14,7 @@ router.post('/', (req, res, next) => {
 		console.log(name);
 		try {
 			if (stationNameToCode[name] !== undefined) {
-				res.status(200).send(stationNameToCode[name]);
+				res.status(200).json(stationNameToCode[name]);
 			} else {
 				continue;
 			}
