@@ -135,7 +135,7 @@ module.exports = function() {
 		const shiftInDay = Math.floor(hourAddition / 24);
 
 		const dateSplit = boardingDate.split(' ');
-		const date = parseInt(dateSplit[0], 10);
+		const date = parseInt(dateSplit[0].slice(0, 2), 10);
 		var month = dateSplit[1];
 		month = month.length === 3 ? convertor[month] : month;
 		const year = parseInt(dateSplit[2], 10);
