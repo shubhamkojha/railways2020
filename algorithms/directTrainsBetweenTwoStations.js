@@ -51,47 +51,61 @@ module.exports = function() {
 	};
 
 	this.reachingDate = function(boardingDate, originDeparture, connectionDuration, originDuration) {
+		var convertor = {
+			jan: 'january',
+			feb: 'february',
+			mar: 'march',
+			apr: 'april',
+			may: 'may',
+			jun: 'june',
+			jul: 'july',
+			aug: 'august',
+			sep: 'september',
+			oct: 'october',
+			nov: 'november',
+			dec: 'december',
+		};
 		var monthDays = {
-			jan: 31,
-			feb: 28,
-			mar: 31,
-			apr: 30,
+			january: 31,
+			february: 28,
+			march: 31,
+			april: 30,
 			may: 31,
-			jun: 30,
-			jul: 31,
-			aug: 31,
-			sep: 30,
-			oct: 31,
-			nov: 30,
-			dec: 31,
+			june: 30,
+			july: 31,
+			august: 31,
+			september: 30,
+			october: 31,
+			november: 30,
+			december: 31,
 		};
 		var monthToIndex = {
-			jan: 0,
-			feb: 1,
-			mar: 2,
-			apr: 3,
+			january: 0,
+			february: 1,
+			march: 2,
+			april: 3,
 			may: 4,
-			jun: 5,
-			jul: 6,
-			aug: 7,
-			sep: 8,
-			oct: 9,
-			nov: 10,
-			dec: 11,
+			june: 5,
+			july: 6,
+			august: 7,
+			september: 8,
+			october: 9,
+			november: 10,
+			december: 11,
 		};
 		var indexToMonth = {
-			0: 'jan',
-			1: 'feb',
-			2: 'mar',
-			3: 'apr',
+			0: 'january',
+			1: 'february',
+			2: 'march',
+			3: 'april',
 			4: 'may',
-			5: 'jun',
-			6: 'jul',
-			7: 'aug',
-			8: 'sep',
-			9: 'oct',
-			10: 'nov',
-			11: 'dec',
+			5: 'june',
+			6: 'july',
+			7: 'august',
+			8: 'september',
+			9: 'october',
+			10: 'november',
+			11: 'december',
 		};
 
 		const connectionTimes = connectionDuration.split(':');
@@ -122,7 +136,8 @@ module.exports = function() {
 
 		const dateSplit = boardingDate.split(' ');
 		const date = parseInt(dateSplit[0], 10);
-		const month = dateSplit[1];
+		var month = dateSplit[1];
+		month = month.length === 3 ? convertor[month] : month;
 		const year = parseInt(dateSplit[2], 10);
 
 		const dateShift = date + shiftInDay;
