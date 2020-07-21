@@ -3,7 +3,7 @@ const router = express.Router();
 const stationNameToCode = require('../data/stationNametoCode.json');
 
 router.post('/', (req, res, next) => {
-	const additions = [ 'Central', 'Junction', 'Terminal', 'City' ];
+	const additions = [ '', 'Central', 'Junction', 'Terminal', 'City' ];
 
 	for (key in additions) {
 		var name = req.body.name;
