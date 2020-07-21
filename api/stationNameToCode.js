@@ -4,9 +4,12 @@ const stationNameToCode = require('../data/stationNametoCode.json');
 
 router.post('/', (req, res, next) => {
 	const additions = [ '', 'Central', 'Junction', 'Terminal', 'City' ];
-
+	capitalizeFirstLetter = (name) => {
+		return name.charAt(0).toUpperCase() + name.slice(1);
+	};
 	for (key in additions) {
 		var name = req.body.name;
+		name = capitalizeFirstLetter(name);
 		name = name + ' ' + additions[key];
 		console.log(name);
 		try {
