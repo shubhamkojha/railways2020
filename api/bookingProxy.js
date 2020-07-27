@@ -41,8 +41,7 @@ router.post('/', async (req, res, next) => {
 			res.status(200).json(entityExtraction);
 		}
 	} catch (error) {
-		console.log(error);
-		throw error;
+		res.status(500).json(error);
 		next();
 	}
 	next();
