@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "smart-india-hackathon-tts",
+  "private_key_id": "e662ba0b22967fc865b702df91545fb7ffd7b180",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQDRnkNj0AWiEgSX\n5QZGaVxdL0S2HObrTdIzLT1TgCxy3q1B+ujzMmqKXVSAzVYNGTmPnWR0mr/8zo2t\nak2+ygKPwuIzZklrEtOTBnFdb94B3TwBYFyKzJCMbR8RpYdg4Nhuo8HohTJvFGhK\nHFl854xVWxZ8QRznKKL+EpjHzSbwU6RdBF6zJpJXMKXJcllOwMyhjwjFuUCZcum2\ndXZWiux8VyeS0zc1n9N/x238a3SwkAKkWTCSTcF12IbZc0pSclUOtoRx8MOhTW6b\nrz7+FsQBXWeJvGUHFYYSvqC1eBu9+uYSdZaCra6VC176qBX4/1+TOLO4yJHR4eG1\nbi1giTx1AgMBAAECggEAFff8vxa7qGc0BQlTNYjwTbHZBS8VQn728zcgEMLDpcxR\nozMdO/PCN7sdUpxyks/ceQE5WIEpcuDg91ZHTKIWT6PQmitzsV2ZP/TyZ6UEQvTB\nR7GmMUPMOHNtSKes/wnBlSLjfS+MgBjG71F2TYFk80MnIaGfWlincHJZgcMt/AzP\nSTqxZ90bJHyL8BGszsURo90roq0c6iW/N9HQGB3vCOKSgWcD2JhsnZnVX7wwo9j5\nwRBAWy6iDhql8sUCM3ifhabVVQsbJFO8Rk9NO23JnRjMg0SUXl31ICOrf7+35k2Q\nY7cHbChFjhOZh/6m00hRppFmPrMce3BTnm8neB7owQKBgQD/U9Bejm00nbAnk3pQ\naJh0OWHPmBawgBItR3/BwmIry48RyMEwBnmY01xep7gkqlkC+jCV7Cxvs4Q5jDHF\nv7yAqFZ8h+4/BLUMaU+wZjyXOeohzwVDPivNPTEMWFOl4Ro+HF/cPA533BdvcuKr\ncyOrHECAx01ZsdyKji/eXrZpFQKBgQDSK5/Nu0N+k3pTz1/ljIrp19456Shm3fX+\nxj+skWZptJRM4LGKj/1Q1J4V7OWKbW8px7b8D42j8+leJs/XL7RuqCVwyEgFzC1R\nLju4AxAy0kfr4jhF4mUESXTrUk6SX/HLOns2jROfqpQzFOSs0BkOdhK5hwBwlvYv\n+Js/u/Gd4QKBgDJyyAf20kMEKSsYq6E5mW3VbKsM3ObQ10aVCvwowSbwGHumE+2+\nScZVdLnLH8o20lGRR4pH2NvVN3n7ZlYxNTiiijwey4cuEeu63yD2gmBK9CTr95k6\nroLl5UwQI67x1DKTfqlQQHeUSBkgNQM1Q8XqViBbwL/JMc86muCwDBClAoGAZnAa\n4MTAfgZV3lm6TQE2iAnOZ/2L0q+nAfoQ+QSZnTYF/n6aKoZKGsa3Esq3isQSJZQR\nTUQrblkpStmx/hljYXgVX6ZO7Hx7LhFRzDu5/ntd0MwfT3isce13zmb8ov2etcaY\nXZtfkDgtKcSqPMzlGZZVRBZYEYiTEAilaugpOSECgYEA7gcInTIUHSB0HoHaCXYz\nF19rcaI0XSELOJWXvLIe/HFKbMDxPVqz9/3C0zwpM9XPR84CUgIKul0ME2mfBl0a\n27DhfcwtQI6rz4twD/FAbk0plFmIP1nKISKo499MRWd9qJQCcWmFQyFPwyu15nnC\nbSjLv/bL8++wEnhON+D2dEw=\n-----END PRIVATE KEY-----\n",
+  "client_email": "translation@smart-india-hackathon-tts.iam.gserviceaccount.com",
+  "client_id": "112068460003951066394",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/translation%40smart-india-hackathon-tts.iam.gserviceaccount.com"
+}

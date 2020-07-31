@@ -11,6 +11,7 @@ const stationNameToCode = require('./api/stationNameToCode.js');
 const trainName = require('./api/trainName.js');
 const bookingProxy = require('./api/bookingProxy.js');
 const enquiryProxy = require('./api/enquiryProxy.js');
+const enquiryComponent = require('./api/enquiryComponent.js');
 
 app.use(cors());
 app.use(express.json());
@@ -22,5 +23,6 @@ app.use('/station-name-to-code', stationNameToCode);
 app.use('/train-name', trainName);
 app.use('/booking-proxy', bookingProxy);
 app.use('/enquiry-proxy', enquiryProxy);
+app.use('/get-enquiry-component', enquiryComponent);
 
 module.exports = app;
