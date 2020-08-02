@@ -12,6 +12,9 @@ const trainName = require('./api/trainName.js');
 const bookingProxy = require('./api/bookingProxy.js');
 const enquiryProxy = require('./api/enquiryProxy.js');
 const enquiryComponent = require('./api/enquiryComponent.js');
+const indirectNearby = require('./api/indirectNearby.js');
+const indirectNearByTrains = require('./api/indirectNearby.js');
+const uts = require('./api/utsReservation.js');
 
 app.use(cors());
 app.use(express.json());
@@ -24,5 +27,7 @@ app.use('/train-name', trainName);
 app.use('/booking-proxy', bookingProxy);
 app.use('/enquiry-proxy', enquiryProxy);
 app.use('/get-enquiry-component', enquiryComponent);
+app.use('/alternate-trains-from-nearby', indirectNearByTrains);
+app.use('/get-uts', uts);
 
 module.exports = app;
