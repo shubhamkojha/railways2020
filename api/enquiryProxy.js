@@ -19,7 +19,7 @@ router.post('/', async (req, res, next) => {
 			const entityExtractionIntent = entityCall.data.intent;
 			res.status(200).json({ entity: entityExtractionEntities, intent: entityExtractionIntent });
 		} catch (error) {
-			throw error;
+			res.status(500).json(error);
 		}
 		next();
 	}

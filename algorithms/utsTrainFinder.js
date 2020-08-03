@@ -3,7 +3,7 @@ require('./directTrainsBetweenTwoStations');
 require('../algorithms/directTrainsBetweenTwoStations.js')();
 
 module.exports = function() {
-	this.utsTrainFinder = (origin, destination, via, day, date) => {
+	this.utsTrainFinder = (origin, destination, via, number, day, date) => {
 		const trains = directTrainsBetweenTwoStations(origin, destination, day, date);
 
 		var candidates = [];
@@ -14,6 +14,6 @@ module.exports = function() {
 			}
 		}
 
-		return candidates;
+		return { trains: candidates, origin: origin, destination: destination, via: via, number: number };
 	};
 };
