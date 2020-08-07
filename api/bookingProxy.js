@@ -26,9 +26,8 @@ router.post('/', async (req, res, next) => {
 			const entityExtraction = entityCall.data.entities;
 			res.status(200).json(entityExtraction);
 		} catch (error) {
-			throw error;
+			res.status(500).json(error);
 		}
-		next();
 	}
 	try {
 		const [ response ] = await translationClient.translateText(request);
@@ -42,8 +41,6 @@ router.post('/', async (req, res, next) => {
 		}
 	} catch (error) {
 		res.status(500).json(error);
-		next();
 	}
-	next();
 });
 module.exports = router;
