@@ -6,5 +6,5 @@ Disclaimer: This is a changing codebase.
 Features and algorithms are being added/updated regularly.
 Please pull latest codebase before working on it.
 
-Deployment: https://sih-2020-26518.firebaseapp.com
+**This repository is All India Winner of Smart India Hackathon 2020, Software Edition under Ministry of Railways PS number B228"
 
