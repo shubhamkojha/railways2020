@@ -6,5 +6,5 @@ Disclaimer: This is a changing codebase.
 Features and algorithms are being added/updated regularly.
 Please pull latest codebase before working on it.
 
-**This repository is All India Winner of Smart India Hackathon 2020, Software Edition under Ministry of Railways PS number B228"
+**This repository is All India Winner of Smart India Hackathon 2020, Software Edition under Ministry of Railways PS number B228**
 
