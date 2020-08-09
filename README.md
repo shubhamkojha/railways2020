@@ -8,3 +8,12 @@ Please pull latest codebase before working on it.
 
 **This repository is All India Winner of Smart India Hackathon 2020, Software Edition under Ministry of Railways PS number B228**
 
+<h3>Team Members </h3>
+Zahle Sakir Khan (Leader)
+Shubham Kumar Ojha
+Tanuj Dwivedi
+Ujjawal Khare
+Sobha Yatam Vagdevi
+Shivam Raj
+
+
