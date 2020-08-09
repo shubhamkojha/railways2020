@@ -10,10 +10,10 @@ Please pull latest codebase before working on it.
 
 <h3>Team Members </h3>
 Zahle Sakir Khan (Leader)
-Shubham Kumar Ojha
-Tanuj Dwivedi
-Ujjawal Khare
-Sobha Yatam Vagdevi
+Shubham Kumar Ojha <br />
+Tanuj Dwivedi <br />
+Ujjawal Khare <br />
+Sobha Yatam Vagdevi <br />
 Shivam Raj
 
 
